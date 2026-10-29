@@ -3,3 +3,7 @@
 /analysis/training_review_chat/
 # 本次指南提取、内嵌图片及核对过程
 /analysis/plan_20261029/
+# 模板适配备份、原始私密记录比对及本地校验过程
+/analysis/template_adoption/
+# 既有实测材料按老师字段重排的私密草稿
+/实测记录/**/老师模板整理稿.md

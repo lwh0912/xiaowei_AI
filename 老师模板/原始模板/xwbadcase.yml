@@ -1,0 +1,291 @@
+name: "初赛 Bad Case 提交"
+description: "提交一条初赛 Bad Case（问题案例），按规范填写全部必填内容；请勿其他模板提交Bad Case"
+title: "Bad Case"
+labels:
+  - "bad-case"
+  - "待评审"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提交须知：
+        1. 一个 issue 只提交 **一条** Bad Case，请勿把多个不相关的问题合并提交，请勿修改issue的标题内容；
+        2. 「问题总结」请填写一句话结论，例如：`AIGC图像生成/主入口多轮改图时背景约束在第 3 轮丢失`；
+        3. **完整会话截图是主要证据**，需覆盖从第一轮到最后一轮，涉及图片、文件等的，请在「附件」中补充，不重不漏不篡改；
+        4. Bad Case 在精不在多，赛会只取最后的30条Bad Case数据进行评比，请不要重复提交或者进行低质量提交；
+
+  - type: input
+    id: issue_summary
+    attributes:
+      label: "问题总结"
+      description: "用一句话概括问题，供审核、查重和复核快速定位；不要写成泛泛的“图片编辑失败”"
+      placeholder: "AIGC图像生成/主入口多轮改图时背景约束在第 3 轮丢失"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: entry_path
+    attributes:
+      label: "① 入口路径"
+      description: "选择本次会话是从哪个入口进入触发的；不在上面列举的，请选「其他入口」并在下方补充说明"
+      options:
+        - "主入口对话（直接聊天、提需求）"
+        - "扫一扫（扫码/拍图后进入）"
+        - "聊天内「问小微」（选中聊天内容询问）"
+        - "搜索入口（微信搜索栏唤起）"
+        - "朋友圈入口（在朋友圈内容上问）"
+        - "公众号内（在文章上问）"
+        - "视频号内（在视频内容上问）"
+        - "文件内（在文档上问）"
+        - "听一听（听一听歌单触发）"
+        - "其他入口（请在下方补充说明）"
+    validations:
+      required: true
+
+  - type: input
+    id: entry_path_detail
+    attributes:
+      label: "其他入口路径补充说明（选填）"
+      placeholder: "不属于上述 9 类入口的，请在此处补充说明是哪个入口、如何触发"
+    validations:
+      required: false
+
+  - type: textarea
+    id: full_conversation_screenshot
+    attributes:
+      label: "② 完整会话截图"
+      description: "请直接将截图拖拽或粘贴到本输入框中，需覆盖从第一轮到最后一轮的全程；若确有特殊情况无法提供截图，请说明原因并尽量补充文字记录。"
+      placeholder: |
+        请按「第几轮 / 用户说了什么 / 小微回复了什么(附截图)」的顺序整理，例如：
+
+        第一轮：
+        附对应截图，截图中有完整的用户问题和小微完整内容
+
+        第二轮：
+        附对应截图，截图中有完整的用户问题和小微完整内容
+
+        第三轮：
+        附对应截图，截图中有完整的用户问题和小微完整内容
+    validations:
+      required: true
+
+  - type: input
+    id: turns
+    attributes:
+      label: "会话轮数"
+      description: "本次会话一共几轮。「用户提问 + 小微回复」记为 1 轮，请填写数字"
+      placeholder: "例如：6"
+    validations:
+      required: true
+
+  - type: textarea
+    id: true_expectation
+    attributes:
+      label: "③ 任务预期"
+      description: "你原本想让小微帮你做什么？这是判断「答非所问」的基准，请具体描述你的真实诉求"
+      placeholder: 例如：把 PDF 第 4 页的表格导了出来，并生成了一个 xlsx 文件
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_result
+    attributes:
+      label: "④ 实际结果"
+      description: "它实际做了什么？请客观描述最终产出（生成了什么、做了什么操作、回了什么话），不要在此处做评价"
+      placeholder: 例如：它把 PDF 第 5 页的表格导了出来，并生成了一个 xlsx 文件
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue_analysis
+    attributes:
+      label: "⑤ 问题分析"
+      description: "说明「预期」与「实际结果」的差异在哪里，并用你自己的话说明它错在哪——体现你的归因能力。下方两个下拉选项用于规范标注问题类型与所属场景，请配合选择。"
+      placeholder: |
+        差异：（我要的是 X，它给的是 Y，差在哪一步）
+        归因：（说明它错在哪一步、为什么错、正确应该怎样处理）
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_category
+    attributes:
+      label: "问题类型"
+      description: "选择本问题最贴近的归因类型，便于规范统计；若不确定可选「其他」并在⑤中说明"
+      options:
+        - "路径幻觉/虚假承诺"
+        - "上下文幻觉"
+        - "任务执行失败"
+        - "链路异常"
+        - "检索失败"
+        - "暴露内部规则"
+        - "安全违规"
+        - "言辞不当/贬损"
+        - "隐私负向暗示"
+        - "空回复/无文字"
+        - "事实错答"
+        - "能力调用错误"
+        - "内容遗漏"
+        - "卡片内容不匹配"
+        - "能力边界自述错误"
+        - "对自身策略不清"
+        - "意图识别错误"
+        - "时间信息理解错误"
+        - "过度拦截"
+        - "啰嗦冗余"
+        - "缺乏趣味/人设"
+        - "未共情/情绪未降级"
+        - "拒答（需说明是否为合理拒答，非Bug）"
+        - "其他"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: skill_scene
+    attributes:
+      label: "所属场景"
+      description: "选择最贴近的一组。场景组会用于计算场景广度覆盖；跨界案例请选择主要问题/能力实际发生的一组。"
+      options:
+        - "A 对话与内容创作类"
+        - "B 微信生态操作类"
+        - "C 图片与多模态类"
+        - "D 搜索与信息获取类"
+        - "E 效率与生活服务类"
+        - "F 小工具创建类"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: validity_selfcheck
+    attributes:
+      label: "有效性自检"
+      description: |
+        请先排除「不算 Bad Case」的五类情形，它们提交后会被判为无效反馈（不参与正向计分，也不倒扣，仅计入满意度分级准确性的分母）：
+        ① 正确拒答（拒绝隐私或外部平台操作，"我做不到"是对的）；② 性格设计（口语化、有主见、调皮）；
+        ③ 需求不可实现（政策/现实/功能未上线，但解释到位）；④ 场景合理慢（生图 20-30 秒、小程序 30 秒+）；
+        ⑤ 自己改需求后已按最终需求办成（中途改了需求，最终结果满足改后的需求）。
+        拿不准就选"不确定"，评审会重点判断——不要因为怕判无效而隐瞒，也不要硬报。
+      options:
+        - "小微确实做错了或没办好（常规 Bad Case）"
+        - "它拒答了/说做不到，但我认为它应该做到（已在⑤中说明理由）"
+        - "它只是慢或只是语气口语化，但我认为体验很差（已在⑤中说明理由）"
+        - "不确定是否属于上述几类，请评审判断"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: satisfaction_grade
+    attributes:
+      label: "⑥ 满意度等级"
+      description: |
+        两条分界线：
+        B|C = 核心任务到底办成没有；
+        C|D = 没办好 vs 骗了我/崩了/泄了。
+        命中 D 档六条红线（虚假完成、幻觉、复读打转、失败无补救、泄露贬损、该拒未拒）任一，直接判 D。
+        注意：本模板只有 B/C/D 三档——若你认为这次会话一次到位（A 档），请改用 Good Case 模板提交。
+      options:
+        - "B 基本满意（核心任务完成，存在可接受的小瑕疵或纠错后完成）"
+        - "C 不太满意（主要需求未满足，或因反复沟通、上下文丢失等影响体验）"
+        - "D 很不满意（出现严重失败或红线问题）"
+    validations:
+      required: true
+
+  - type: textarea
+    id: grade_basis
+    attributes:
+      label: "满意度判定依据"
+      description: "简述为什么判这个等级：办成了多少、卡在哪一步、是否命中 D 档红线。若判 D 请点明命中哪条红线"
+      placeholder: |
+        例如：核心诉求（导出第 3 页表格）未完成，只落地了第 5 页，来回 4 轮仍未纠正，完成度约 30%，判 C
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reproducibility
+    attributes:
+      label: "⑦ 可复现性"
+      description: "同样的对话内容，重复测试时问题出现的概率；请结合下方填写的测试次数与复现次数如实选择"
+      options:
+        - "每次必现"
+        - "高概率复现（约50%以上）"
+        - "偶发复现（低于50%）"
+        - "仅出现过一次，未再重试"
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction_test_count
+    attributes:
+      label: "测试次数"
+      description: "用相同或等价的对话内容一共测试了几次，请填写数字；仅测试过一次填 1"
+      placeholder: "例如：5"
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction_success_count
+    attributes:
+      label: "复现出问题的次数"
+      description: "上述测试次数中，有几次复现出了同样的问题，请填写数字（不应大于测试次数）；仅测试过一次填 1"
+      placeholder: "例如：4"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: env_client_platform
+    attributes:
+      label: "客户端平台"
+      description: "测试所用的手机系统，点选即可"
+      options:
+        - "iOS"
+        - "Android"
+        - "鸿蒙"
+        - "不确定"
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: "附件"
+      description: "涉及图片理解、文件处理、小工具创建的案例，请补充必要的原始输入文件、生成产物截图或工具结果截图。若重复测试过，建议同时附至少一次重复测试的会话截图或录屏，便于复核。"
+    validations:
+      required: false
+
+  - type: textarea
+    id: trigger_condition
+    attributes:
+      label: "⑧ 复现步骤与触发条件"
+      description: "请写清他人如何按相同条件复现本问题，包括入口、关键操作/对话、必要前置条件和出现问题的位置。即使仅测试过一次或暂未复现，也请如实说明。此项与上方测试次数、复现出问题的次数共同用于评审核对可复现性。"
+      placeholder: |
+        入口：文件内
+        步骤：1. 打开同一份 PDF；2. 提问“提取第 4 页付款日期和金额”；3. 第 3 轮要求改为表格输出
+        结果：共测 3 次，其中 2 次把第 5 页数据当成第 4 页；对应截图见完整会话第 3 轮和附件
+    validations:
+      required: true
+
+  - type: textarea
+    id: exploration_evidence
+    attributes:
+      label: "探索过程补充（选填）"
+      description: "若本案例是在同一任务中调整条件/约束/身份/输入方式后，或在其他入口尝试同类任务后发现，请简要说明实际操作和对应截图。此处只记录事实，是否构成深挖、条件变化或跨入口探索由评审判定。"
+      placeholder: |
+        例如：第 4 轮把预算从 3000 改为 2000，仍要求只坐高铁；第 6 轮发现小微改成飞机。
+        或：我还在聊天内「问小微」尝试了同一待办整理任务，相关截图已附在附件中。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: "提交确认"
+      description: "请逐项确认后再提交"
+      options:
+        - label: "我确认本次提交为 Bad Case，未用本模板提交 Good Case"
+          required: true
+        - label: "我确认以上内容为真实复现结果，未编造或篡改对话内容"
+          required: true
+        - label: "我已确认本 issue 仅包含一条 Bad Case，未与其他问题合并提交"
+          required: true
+        - label: "我知悉并同意本次提交内容可用于比赛评测数据集"
+          required: true

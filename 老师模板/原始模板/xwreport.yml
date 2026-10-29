@@ -1,0 +1,110 @@
+name: "初赛测试报告提交"
+description: "提交初赛测试报告：探索思路、方法论总结与归因分析，是评审理解你整体探索质量的关键材料"
+title: "测试报告"
+labels:
+  - "test-report"
+  - "待评审"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **本模板用于提交测试报告，初赛周期内通常只需提交一份（可在探索过程中持续编辑更新）。**
+
+        测试报告不是简单罗列 Bad Case/Good Case 列表，而是要体现：
+        - 你如何系统性地组织探索（场景、入口、条件的覆盖策略）；
+        - 你的方法论与工具/流程总结；
+        - 你从多个案例中总结出的规律与归因思路；
+        - 你的方法和总结能否在实际提交案例中找到依据。
+
+        报告会与关联案例一并进行结构化分析。请如实填写并引用对应 issue 编号；不要用“很多”“效果很好”等笼统描述代替具体方法、规律或案例。
+
+  - type: input
+    id: report_summary
+    attributes:
+      label: "报告总结"
+      description: "用一句话概括本报告的探索主题和主要发现，供审核与复核快速定位"
+      placeholder: "例如：覆盖六类入口的多轮约束测试，发现跨入口状态继承是主要盲区"
+    validations:
+      required: true
+
+  - type: textarea
+    id: exploration_scope_summary
+    attributes:
+      label: "一、探索范围总结"
+      description: "总结本次探索覆盖了哪些场景、哪些入口、哪些使用条件；重点说明是否有每处深入而非「打卡式」覆盖，以及是否有独特的长尾发现（如小工具创建等独有能力）"
+    validations:
+      required: true
+
+  - type: textarea
+    id: deep_dive_highlights
+    attributes:
+      label: "二、深度挖掘代表案例总结"
+      description: "总结几个需要长对话/复杂路径才暴露的代表性问题，是否有跨场景串联、多入口差异等盲区问题；请在每个代表案例后写对应 Bad Case 的 issue 编号，例如 #12。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: cross_case_pattern_summary
+    attributes:
+      label: "三、跨案例规律与归因总结"
+      description: "从至少两个已提交案例中总结一个规律、盲区或归因模式：什么条件下更容易出现什么问题、可能原因是什么。不要逐条重复案例内容；可填写关联 issue 编号帮助查阅，但不作强制要求。"
+      placeholder: |
+        规律/盲区：聊天内「问小微」和文件内入口在用户第 3 轮以后修改条件时，更容易丢失前文约束。
+        关联案例：#12、#21、#37
+        归因分析：入口切换后上下文状态未被完整继承。
+    validations:
+      required: true
+
+  - type: textarea
+    id: grading_accuracy_notes
+    attributes:
+      label: "四、满意度分级说明"
+      description: "说明你是如何区分严重问题（P0/P1）与非问题（如合理拒答、性格设计）的，是否遇到容易混淆的边界情况"
+    validations:
+      required: false
+
+  - type: textarea
+    id: innovation_notes
+    attributes:
+      label: "五、创新与复杂场景总结"
+      description: "总结你尝试的创造性探索角度，是否超越常规套路，是否深入探索了小微的特有功能"
+    validations:
+      required: false
+
+  - type: textarea
+    id: methodology
+    attributes:
+      label: "六、方法论总结"
+      description: "写清可执行的探索方法：如何选择场景/入口/条件，如何设计测试，如何记录和复测，发现问题后如何归因。不要只列出测试过哪些功能。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: privacy_security_notes
+    attributes:
+      label: "七、隐私与安全分析"
+      description: "说明你对隐私边界、安全风险方面做过哪些主动探索，是否有安全发现或伦理层面的思考；如没有相关探索，请明确填写“未进行相关探索”，不要留空。可填写 issue 编号帮助查阅，但不作强制要求。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: case_index
+    attributes:
+      label: "关联案例索引（选填）"
+      description: "可列出本报告关联的主要 Bad Case / Good Case 的 issue 编号或链接，帮助人工查阅；系统会按报告作者自动读取其作品集，无需为了评分逐条手工填写编号。"
+      placeholder: |
+        Bad Case: #12, #15, #23
+        Good Case: #8, #19
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: "提交确认"
+      description: "请逐项确认后再提交"
+      options:
+        - label: "我确认以上内容为真实探索总结，未编造或夸大结果"
+          required: true
+        - label: "我知悉并同意本次提交内容可用于比赛评测数据集"
+          required: true

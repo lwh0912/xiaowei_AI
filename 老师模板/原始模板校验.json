@@ -1,0 +1,20 @@
+[
+  {
+    "file": "xwbadcase.yml",
+    "received_date": "2026-10-29",
+    "sha256": "c8ac02353dafee69d65f541fde30ceb7aa155533835c58f66772c86857e3eb66",
+    "bytes": 12610
+  },
+  {
+    "file": "xwgoodcase.yml",
+    "received_date": "2026-10-29",
+    "sha256": "438b5fff8b702ff3bc19731c151113fb45558b308359bb77c81d8060799b0bc2",
+    "bytes": 10369
+  },
+  {
+    "file": "xwreport.yml",
+    "received_date": "2026-10-29",
+    "sha256": "eb688b1b6f43160fb5db590990ffedfd9af4917d0d87bbb91af2da04c632e713",
+    "bytes": 5014
+  }
+]
