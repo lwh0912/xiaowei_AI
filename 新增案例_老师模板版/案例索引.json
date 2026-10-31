@@ -1,0 +1,98 @@
+[
+  {
+    "id": "PLAN-A05",
+    "title": "中英双语通知中的义务与可选条件",
+    "scene": "A",
+    "priority": "P0",
+    "status": "待执行",
+    "path": "A对话与内容创作/PLAN-A05"
+  },
+  {
+    "id": "PLAN-A06",
+    "title": "公开版与内部版摘要的字段隔离",
+    "scene": "A",
+    "priority": "P0",
+    "status": "待执行",
+    "path": "A对话与内容创作/PLAN-A06"
+  },
+  {
+    "id": "PLAN-B05",
+    "title": "选中聊天材料的指代缺失与补充",
+    "scene": "B",
+    "priority": "P1",
+    "status": "待执行",
+    "path": "B微信生态操作/PLAN-B05"
+  },
+  {
+    "id": "PLAN-B06",
+    "title": "引用中的发送字样与真实操作请求",
+    "scene": "B",
+    "priority": "P1",
+    "status": "待执行",
+    "path": "B微信生态操作/PLAN-B06"
+  },
+  {
+    "id": "PLAN-C05",
+    "title": "截断纵轴图的增长量与增长率",
+    "scene": "C",
+    "priority": "P0",
+    "status": "待执行",
+    "path": "C图片与多模态/PLAN-C05"
+  },
+  {
+    "id": "PLAN-C06",
+    "title": "课表颜色图例变更后的房间归属",
+    "scene": "C",
+    "priority": "P1",
+    "status": "待执行",
+    "path": "C图片与多模态/PLAN-C06"
+  },
+  {
+    "id": "PLAN-D05",
+    "title": "同名教室的跨文件复合键查询",
+    "scene": "D",
+    "priority": "P0",
+    "status": "待执行",
+    "path": "D搜索与信息获取/PLAN-D05"
+  },
+  {
+    "id": "PLAN-D06",
+    "title": "同日期冲突材料的澄清与局部裁定",
+    "scene": "D",
+    "priority": "P1",
+    "status": "待执行",
+    "path": "D搜索与信息获取/PLAN-D06"
+  },
+  {
+    "id": "PLAN-E05",
+    "title": "单教室排期中的清场时间与不可行约束",
+    "scene": "E",
+    "priority": "P0",
+    "status": "待执行",
+    "path": "E效率与生活服务/PLAN-E05"
+  },
+  {
+    "id": "PLAN-E06",
+    "title": "阶梯租赁计费的临界点与方案比较",
+    "scene": "E",
+    "priority": "P1",
+    "status": "待执行",
+    "path": "E效率与生活服务/PLAN-E06"
+  },
+  {
+    "id": "PLAN-F05",
+    "title": "支出工具筛选与全量统计的独立性",
+    "scene": "F",
+    "priority": "P1",
+    "status": "待执行",
+    "path": "F小工具创建/PLAN-F05"
+  },
+  {
+    "id": "PLAN-F06",
+    "title": "加权成绩工具的空值与零分区分",
+    "scene": "F",
+    "priority": "P1",
+    "status": "待执行",
+    "path": "F小工具创建/PLAN-F06"
+  }
+]
